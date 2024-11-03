@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+
+        #heading {
+            text-align: center;
+            position: relative;
+
+        }
+
+        #heading button {
+            margin-top: 20px;
+            padding: 10px;
+            cursor: pointer;
+            background-color: rgb(212, 255, 0);
+            border: 1px solid black;
+            border-radius: 5px;
+            color: rgb(146, 146, 146);
+            font-weight: 700;
+        }
+
+        #blurImage {
+            border: 2px solid black;
+            height: 200px;
+            width: 200px;
+            background-color: skyblue;
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            filter: blur(120px);
+        }
+
+        #inputData {
+            display: flex;
+            flex-direction: column;
+            border: 2px solid black;
+            padding: 20px;
+            width: 30%;
+            gap: 10px;
+            margin: auto;
+            margin-top: 20px;
+        }
+
+        #inputData input {
+            height: 30px;
+            padding: 5px;
+        }
+
+        .card {
+            border: 1px solid rgb(153, 153, 153);
+            width: 390px;
+            min-height: 150px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 10px rgb(188, 188, 188);
+
+        }
+
+        #profile {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            margin-top: 50px;
+            padding: 10px;
+            gap: 10px;
+            row-gap: 40px;
+            place-items: center;
+            margin-bottom: 30px;
+        }
+
+        .updateBtn button {
+            padding: 4px;
+            margin-right: 5px;
+            width: 60px;
+            cursor: pointer;
+        }
+
+        .hidden{
+            display: none;
+            visibility: hidden;
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="heading">
+            <h1>Profile app</h1>
+            <div id="blurImage"></div>
+            
+            <div style="position: relative;   ">
+                <form onsubmit="submitHandler(event)" id="createForm" >
+                    <div id="inputData">
+                        <input type="text"  name="name" placeholder="Name" />
+                        <input type="email" name="email" placeholder="Email" />
+                        <input type="text" name="phone" placeholder="Phone No" />
+                        <input type="text" name="address" placeholder="Address" />
+                    </div>
+                    <button type="submit" >Create Profile</button>
+                </form>
+    
+            <div  id="editBox" class="hidden"  style="position: absolute; border-radius: 20px;  backdrop-filter: blur(50px); background-color: rgba(142, 19, 142, 0.244); width: 700px; top: 0px; right:20%; padding: 5px;  ">
+                <p>Edit Your Profile</p>
+                <form onsubmit="SubmitEditHandler(event)" id="editform">
+                    <div id="inputData" style="width: 55%;">
+                        <input type="text"  name="name" placeholder="Name" />
+                        <input type="email" name="email" placeholder="Email" />
+                        <input type="text" name="phone" placeholder="Phone No" />
+                        <input type="text" name="address" placeholder="Address" />
+                    </div>
+                    <button type="submit" >Edit Profile</button>
+                </form>
+            </div>
+            </div>
+        </div>
+
+        <div id="profile">
+            <!-- data will fetch by backend api     -->
+            
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
